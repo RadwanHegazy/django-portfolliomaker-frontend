@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{tenant.full_name}}</title>
+    <link rel="stylesheet" href="{% static 'style/user-tenant.css' %}">
+</head>
+<body >
+
+    <div id="particles-js" class="par"></div>
+
+    <p>{{tenant.email}}</p>
+    <img src="{{main_url}}{{tenant.picture}}" alt="">
+    
+    <h3>Hello i'm <span> {{tenant.full_name}}</span></h3>
+    <h3>And i'm <span>{{tenant.tenant.jop_title}}</span></h3>
+    
+    <p>{{tenant.tenant.about}}</p>
+    
+    <script src="{% static 'particles.js/particles.min.js' %}"></script>
+    <script>
+        // load lib.
+        particlesJS.load('particles-js', '{% static "particles.js/config.json" %}', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
+    </script>
+
+</body>
+</html>

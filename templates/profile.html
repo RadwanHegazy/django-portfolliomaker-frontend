@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="{% static 'style/form.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="info">
+            <a href="#" target="_blank">http://radwan.localhost:8000/</a>
+            <a href="#" >اغلاق الموقع</a>            
+            <!-- <a href="#" class="active">فتح الموقع</a>             -->
+        </div>
+        <div class="img">
+            <img id="imgView" src="images/user.png" alt="">
+            <button type="button" id="imgBtn">تغير</button>
+            <input type="file" accept="image/*" hidden id="imgFile">
+        </div>
+        
+        <input type="text" name="full_name" placeholder="اسم المستخدم">
+        <input type="email" name="email" placeholder="البريد الالكتروني">
+        <input type="text" name="password" placeholder="التخصص الخاص بك">
+        <textarea name="" id="" placeholder="نبذة تعريفية عنك"></textarea>
+        <div class="btns">
+            <a href="{% url 'logout' %}" style="color: crimson;"> تسجيل الخروج</a>
+            <button>حفظ</button>
+        </div>
+    </div>
+
+    <script>
+        var imgFile = document.getElementById('imgFile');
+        var imgView = document.getElementById('imgView');
+        var imgBtn = document.getElementById('imgBtn');
+
+        imgBtn.addEventListener('click',()=>{
+            imgFile.click();
+        })
+
+        imgFile.addEventListener('change',(e)=>{
+            imgView.src = URL.createObjectURL(e.target.files[0]);
+        })
+        
+    </script>
+</body>
+</html>

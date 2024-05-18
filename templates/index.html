@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+</head>
+<body>
+    
+    <img src="{% static 'images/bg.png' %}" alt="" class="bg">
+
+
+    <div class="container">
+        <div class="up">
+            <h1>ابني موقعك التفريفي الخاص بك</h1>
+            <div class="btns">
+                <a href="{% url 'login' %}">تسجيل الدخول</a>
+                <a href="{% url 'register' %}">انشاء حساب</a>
+            </div>
+        </div>
+    
+        <div class="clients">
+            <h1>عملائنا</h1>
+            <div class="list">
+        
+                {% for tenant in tenants %}
+                    <a href="http://{{tenant.name}}.localhost:8000/" class="cl">
+                        <img src="{{main_url}}{{tenant.user.picture}}" alt="">
+                        <p>{{tenant.user.full_name}}</p>
+                    </a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+ 
+</body>
+</html>

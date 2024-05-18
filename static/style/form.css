@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --var-font:"Cairo",sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #B926FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1.4rem 2rem;
+    border-radius: 12px;
+    width: 400px;
+    height: auto;
+    gap: 10px;
+    font-family: var(--var-font);
+}
+
+.container h3 {
+    text-align: center;
+    color: #B926FF;
+}
+
+.container .img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.container .img img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: #B926FF10;
+    padding: 7px;
+}
+
+.container .img button {
+    border: none;
+    outline: none;
+    font-family: var(--var-font);
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color:#27E2C8 ;
+    color: #fff;
+}
+
+
+.container input, .container textarea {
+    height: 45px;
+    direction: rtl;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-family: var(--var-font);
+    background-color: #cccccc30;
+    color: #000;
+}
+
+.container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns a {
+    color: #198CC8;
+}
+
+.btns button {
+    font-family: var(--var-font);
+    padding: 6px 12px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #B926FF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info a:first-child {
+    color: #198CC8;
+}
+
+.info a:last-child {
+    color: #fff;
+    background-color: crimson;
+    text-decoration: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+.info a.active {
+    background-color: #19c85f;
+}
+

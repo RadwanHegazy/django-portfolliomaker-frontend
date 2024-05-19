@@ -26,7 +26,7 @@ class register_view (View) :
             }
 
         action.post()
-
+        print(action.json_data)
         if action.is_valid() : 
             response = redirect('profile')
             response.set_cookie('user',action.json_data['token'])

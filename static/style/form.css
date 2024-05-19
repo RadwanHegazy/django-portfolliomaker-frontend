@@ -113,7 +113,7 @@ body {
     color: #198CC8;
 }
 
-.info a:last-child {
+.info input {
     color: #fff;
     background-color: crimson;
     text-decoration: none;
@@ -122,7 +122,7 @@ body {
     border-radius: 6px;
 }
 
-.info a.active {
+.info input.active {
     background-color: #19c85f;
 }
 

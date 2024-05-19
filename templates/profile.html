@@ -9,27 +9,33 @@
 </head>
 <body>
     
-    <div class="container">
+    <form class="container" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="info">
-            <a href="#" target="_blank">http://radwan.localhost:8000/</a>
-            <a href="#" >اغلاق الموقع</a>            
-            <!-- <a href="#" class="active">فتح الموقع</a>             -->
+            <a href="http://{{c_user.tenant.name}}.localhost:8000/" target="_blank">http://{{c_user.tenant.name}}.localhost:8000/</a>
+            {% if c_user.tenant.is_working %}
+                <input type="submit" name="is_working" value="off">
+                <!-- <a href="#" >اغلاق الموقع</a>             -->
+                {% else %}
+                <input type="submit" name="is_working" value="on" class="active">
+                <!-- <a href="#" class="active">فتح الموقع</a>             -->
+            {% endif %}
         </div>
         <div class="img">
-            <img id="imgView" src="images/user.png" alt="">
+            <img id="imgView" src="{{main_url}}{{c_user.picture}}" alt="">
             <button type="button" id="imgBtn">تغير</button>
             <input type="file" accept="image/*" hidden id="imgFile">
         </div>
         
-        <input type="text" name="full_name" placeholder="اسم المستخدم">
-        <input type="email" name="email" placeholder="البريد الالكتروني">
-        <input type="text" name="password" placeholder="التخصص الخاص بك">
-        <textarea name="" id="" placeholder="نبذة تعريفية عنك"></textarea>
+        <input type="text" name="full_name" value="{{c_user.full_name}}" placeholder="اسم المستخدم" readonly>
+        <input type="email" name="email" value="{{c_user.email}}" placeholder="البريد الالكتروني">
+        <input type="text" name="jop_title" value="{{c_user.tenant.jop_title}}" placeholder="التخصص الخاص بك">
+        <textarea name="about" id="" placeholder="نبذة تعريفية عنك">{{c_user.tenant.about}}</textarea>
         <div class="btns">
             <a href="{% url 'logout' %}" style="color: crimson;"> تسجيل الخروج</a>
-            <button>حفظ</button>
+            <button type="submit">حفظ</button>
         </div>
-    </div>
+    </form>
 
     <script>
         var imgFile = document.getElementById('imgFile');

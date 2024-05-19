@@ -18,5 +18,4 @@ def userTemp (request) :
         if action.is_valid() : 
             context['c_user'] = action.json_data
     context['main_url'] = MAIN_URL
-            
     return context

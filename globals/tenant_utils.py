@@ -16,6 +16,8 @@ class TenantManager :
             action.get()
 
             if action.is_valid() :
+                if action.json_data['tenant']['is_working'] == False:
+                    raise Http404(self.request)
                 self.tenant = action.json_data
                 return True
             

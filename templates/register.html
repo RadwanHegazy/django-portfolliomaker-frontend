@@ -15,6 +15,7 @@
 
     <form class="container" method="POST" enctype="multipart/form-data">
         <h3>انشاء حساب</h3>
+        {% csrf_token %}
         <div class="img">
             <img id="imgView" src="{% static 'images/user.png' %}" alt="">
             <button type="button" id="imgBtn">تغير</button>

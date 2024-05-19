@@ -13,6 +13,7 @@ class home_view (View) :
 
         if tenant.has_tenant:
             context['tenant'] = tenant.tenant
+     
             return render(request,'user-tenant.html',context)
         
         # action to get all
@@ -22,6 +23,5 @@ class home_view (View) :
 
         action.get()
 
-        print(action.json_data)
         context['tenants'] = action.json_data
         return render(request,'index.html', context)

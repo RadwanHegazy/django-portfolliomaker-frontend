@@ -18,6 +18,9 @@ class Action :
     def get (self) :
         self.req = requests.get(self.url,data=self.data,headers=self.headers,files=self.files)
         
+    def put (self) :
+        self.req = requests.put(self.url,data=self.data,headers=self.headers,files=self.files)
+        
 
     def is_valid (self) : 
         return (200 == self.req.status_code)
